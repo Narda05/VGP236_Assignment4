@@ -7,6 +7,11 @@ public class Snowball : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy")) // Si golpea a un enemigo
         {
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.EnemyKilled(collision.gameObject);
+            }
+
             Destroy(collision.gameObject); // Destruye al enemigo
             Destroy(gameObject); // Destruye la bola de nieve también
             // send event that enemy is dead
