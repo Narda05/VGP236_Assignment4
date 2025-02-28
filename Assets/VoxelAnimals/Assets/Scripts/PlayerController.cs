@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
     public float movementSpeed = 3;
     public float jumpForce = 300;
     public float timeBeforeNextJump = 1.2f;
@@ -30,7 +29,16 @@ public class PlayerController : MonoBehaviour
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
         float moveVertical = Input.GetAxisRaw("Vertical");
 
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        Camera camera = Camera.main;
+        // get camera forward and right vectors
+        // movement is movehorizontal * right + movevertical * forward
+        Vector3 forward = camera.transform.forward;
+        forward.y = 0;
+        forward = Vector3.Normalize(forward);
+        Vector3 right = camera.transform.right;
+        right.y = 0;
+        right = Vector3.Normalize(right);
+        Vector3 movement = Vector3.Normalize(forward * moveVertical + right * moveHorizontal);
 
         if (movement != Vector3.zero)
         {

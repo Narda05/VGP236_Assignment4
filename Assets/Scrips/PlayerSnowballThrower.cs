@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class PlayerSnowballThrower : MonoBehaviour
 {
-    public GameObject snowballPrefab; // Prefab de la bola de nieve
-    public Transform throwPoint; // Punto desde donde se lanzará
+    public GameObject snowballPrefab;
+    public Transform throwPoint; 
     public float throwForce = 10f;
-    public bool canThrow = false; // Solo puede lanzar después de tocar el EndPoint
+    public bool canThrow = false; 
 
     void Start()
     {

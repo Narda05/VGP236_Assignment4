@@ -29,6 +29,7 @@ public class LevelManager : MonoBehaviour
         if (thrower != null)
         {
             thrower.canThrow = true; // Activa la habilidad de lanzar bolas de nieve
+            endPoint.gameObject.SetActive(false);
         }
     }
 }
