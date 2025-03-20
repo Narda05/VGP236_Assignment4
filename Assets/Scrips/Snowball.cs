@@ -22,5 +22,9 @@ public class Snowball : MonoBehaviour
             //  2) everytime something is kill, in GameManager go to each enemy folder/list LionsAttack.childCount == 0 (safety check, go through all lions and check if they are dead)
             // if(gameObject.IsDestroyed()) do not count
         }
+        if (collision.gameObject)
+        {
+            Destroy(gameObject); // Destruye la bola de nieve también
+        }
     }
 }
